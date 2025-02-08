@@ -22,7 +22,7 @@
         .vista {
             position: relative;
             height: 100vh;
-            background: url('imagen_fondo_vista.jpg') no-repeat center center/cover;
+            background: url('fondo.png') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -58,6 +58,7 @@
         }
 
         .btn {
+            margin-top: 50px;
             display: inline-block;
             padding: 10px 20px;
             font-size: 1rem;
@@ -160,19 +161,19 @@
 }
 
 .btn-contacto .btn {
-    padding: 8px 12px;
-    font-size: 0.9rem;
-    text-decoration: none;
+    all: unset;
+    font-size: 1rem;
     color: #333;
-    background: #ffa8d8; /* Rojo vibrante */
-    border: none;
-    border-radius: 5px;
+    background: none;
+    padding: 4px 0;
+    display: inline-block;
+    width: fit-content; /* Se ajusta al texto */
+    border-bottom: 2px solid #333;
+    text-align: center;
     transition: 0.3s;
 }
 
-.btn-contacto .btn:hover {
-    background: #d4a0bd; /* Rojo más oscuro al pasar el cursor */
-}
+
 
 #ubicacion, #contacto{
     background: none;
@@ -191,7 +192,7 @@
     
         <div class="vista-content">
             <h1>Florería Laurette</h1>
-            <p>Regala amor en cada pétalo, florece el 14 de febrero.</p>
+            <p>Dilo con flores este 14 de febrero</p>
             <a href="#catalogo" class="btn">Ver Catálogo</a>
         </div>
     </section>
