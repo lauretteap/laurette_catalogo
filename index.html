@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floristería Laurette</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f8f8f8;
+            color: #333;
+        }
+
+        /* Sección Principal */
+        .vista {
+            position: relative;
+            height: 100vh;
+            background: url('imagen_fondo_vista.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #333;
+            padding: 20px;
+        }
+
+        .vista::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .vista-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .vista h1 {
+            font-size: 3rem;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .vista p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: #333;
+            border: 2px solid #333;
+            background: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #333;
+            color: white;
+        }
+
+        #header {
+    text-align: center;
+    padding: 20px 0;
+    grid-column: span 2; /* Hace que el título ocupe todo el ancho del grid */
+}
+
+#titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+        /* Catálogo */
+        .catalogo {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            row-gap: 25px;
+            max-width: 1000px;
+            width: 100%;
+            margin: 40px auto;
+            text-align: center;
+            padding: 0 40px; /* Espacio lateral en la sección completa */
+        }
+
+        .tarjeta {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .contenido {
+            padding: 15px;
+        }
+
+        .contenido h2 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .precio {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #7ca1d1;
+            margin-bottom: 8px;
+        }
+
+        /* Sección de Contacto y Ubicación */
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+            background: #fff;
+            margin-top: 40px;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .btn-contacto {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.btn-contacto .btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #333;
+    background: #ffa8d8; /* Rojo vibrante */
+    border: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-contacto .btn:hover {
+    background: #d4a0bd; /* Rojo más oscuro al pasar el cursor */
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Sección Principal -->
+    <section class="vista">
+        <!-- Botón en la esquina superior derecha -->
+        <div class="btn-contacto">
+            <a href="#contacto" class="btn">Contáctanos</a>
+        </div>
+    
+        <div class="vista-content">
+            <h1>Florería Laurette</h1>
+            <p>Regala amor en cada pétalo, florece el 14 de febrero.</p>
+            <a href="#catalogo" class="btn">Ver Catálogo</a>
+        </div>
+    </section>
+    
+
+    <!-- Catálogo -->
+
+    <section class="catalogo" id="catalogo">
+        <header id="header">
+            <h1 id="titulo">CATÁLOGO 14 DE FEBRERO</h1> 
+        </header>
+        <div class="tarjeta">
+            <img src="ramo-ejemplo.jpg" alt="Flor 1">
+            <div class="contenido">
+                <h2>Rosa Azul</h2>
+                <p class="precio">$150</p>
+                <p>Una hermosa rosa azul que simboliza misterio y exclusividad.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="ramo-ejemplo.jpg" alt="Flor 2">
+            <div class="contenido">
+                <h2>Lirio Estelar</h2>
+                <p class="precio">$180</p>
+                <p>Un lirio de pétalos brillantes con un aroma celestial.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="ramo-ejemplo.jpg" alt="Flor 3">
+            <div class="contenido">
+                <h2>Orquídea Violeta</h2>
+                <p class="precio">$200</p>
+                <p>Una orquídea exótica con tonos vibrantes y elegantes.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="ramo-ejemplo.jpg" alt="Flor 4">
+            <div class="contenido">
+                <h2>Tulipán Dorado</h2>
+                <p class="precio">$130</p>
+                <p>Un tulipán radiante que brilla como el oro bajo la luz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section" id="contacto">
+        <h2>Contacto</h2>
+        <p>Email: contacto@floristerialaurette.com</p>
+        <p>Teléfono: +1 234 567 890</p>
+    </section>
+
+    <!-- Ubicación -->
+    <section class="section" id="ubicacion">
+        <h2>Ubicación</h2>
+        <p>Av. Flores Hermosas 123, Ciudad Primavera</p>
+    </section>
+
+</body>
+</html>
