@@ -4,378 +4,22 @@
 <head>
     <!-- FontAwesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- JavaScript -->
+    <script src="scripts.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Florería Laurette</title>
-
-    <style>
-        /* Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        i{
-            color: cadetblue;
-        }
-
-        #num{
-            color: cadetblue;
-
-        }
-
-        body {
-            background: #f8f8f8;
-            color: #333;
-        }
-
-        /* Sección Principal */
-        .vista {
-            position: relative;
-            height: 100vh;
-            background: url('./imagenes/fondo.png') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #333;
-            padding: 20px;
-        }
-
-        .vista::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .vista-content {
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-        }
-
-        .vista h1 {
-            font-size: 3rem;
-            font-family: 'Brush Script MT', cursive;
-        }
-
-        .vista p {
-            font-size: 1.2rem;
-            margin: 10px 0;
-        }
-
-        .btn {
-            margin-top: 50px;
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1rem;
-            text-decoration: none;
-            color: #333;
-            border: 2px solid #333;
-            background: none;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #333;
-            color: white;
-        }
-
-        #header {
-            text-align: center;
-            padding: 20px 0;
-            grid-column: span 2;
-            /* Hace que el título ocupe todo el ancho del grid */
-        }
-
-        #titulo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        /* Catálogo */
-        .catalogo {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            row-gap: 25px;
-            max-width: 1000px;
-            width: 100%;
-            margin: 40px auto;
-            text-align: center;
-            padding: 0 40px;
-            /* Espacio lateral en la sección completa */
-        }
-
-        #contenido {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            text-align: center;
-        }
-
-        .tarjeta {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s;
-        }
-
-
-        .tarjeta:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .tarjeta img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .contenido {
-            padding: 15px;
-        }
-
-        .contenido h2 {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .precio {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #fa86ad;
-            margin-bottom: 8px;
-        }
-
-        /* Sección de Contacto y Ubicación */
-        .section {
-            padding: 50px 20px;
-            text-align: center;
-            background: #fff;
-            margin-top: 20px;
-        }
-
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .section p {
-            font-size: 1rem;
-            max-width: 600px;
-            margin: auto;
-        }
-
-        #redes_sociales{
-            position: absolute;
-            top: 20px;
-            right: 120px; 
-        }
-
-        #icono{
-            font-size: 1.5rem;
-            color: #333;
-            background: none;
-            padding: 4px 0;
-            display: inline-block;
-            width: fit-content;
-            /* Se ajusta al texto */
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .btn-contacto {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
-        .btn-contacto .btn {
-            all: unset;
-            font-size: 1rem;
-            color: #333;
-            background: none;
-            padding: 4px 0;
-            display: inline-block;
-            width: fit-content;
-            /* Se ajusta al texto */
-            border-bottom: 2px solid #333;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-
-
-        #ubicacion,
-        #contacto {
-            background: none;
-        }
-
-        /* Estilos para el modal */
-        .modal {
-            display: none;
-            /* Asegurar que está oculto */
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-contenido {
-            max-width: 90%;
-            max-height: 90%;
-            width: auto;
-            height: auto;
-            display: block;
-            margin: auto;
-            border-radius: 20px;
-        }
-
-        .cerrar {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 40px;
-            color: white;
-            cursor: pointer;
-        }
-
-        #titulo_ubi,
-        #titulo_contacto {
-            border-bottom: 2px solid salmon;
-            margin-bottom: 50px;
-        }
-
-        #contenido_ubi {
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-
-        #info {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s;
-        }
-
-        #info {
-            display: block;
-            margin-top: 50px;
-            /* Opcional, para separar un poco el texto */
-            padding: 20px;
-        }
-
-        #titulo_contacto {
-            margin-bottom: 10px;
-            /* Opcional, para agregar espacio entre el título y la información */
-        }
-
-        #subtitulo {
-            font-size: 13px;
-
-        }
-
-        .lista-puntos {
-
-            margin-bottom: 10px;
-        }
-
-        .fa-instagram{
-            color: #fa86ad;
-        }
-
-        #insta_link{
-            all:unset;
-            font-size: 14px;
-            border-bottom: 2px #333 solid;
-        }
-
-        .fa-facebook{
-            color: blue;
-        }
-
-        #face_link{
-            all:unset;
-            font-size: 14px;
-            border-bottom: 2px #333 solid;
-        }
-
-        /* Hacer el iframe responsivo */
-iframe {
-    max-width: 100%;
-    height: 100%;
-    width: 100%;
-    border-radius: 20px;
-}
-
-/* Ajustar tamaño en pantallas pequeñas */
-@media (max-width: 380px) {
-    iframe {
-        width: 100%;
-        height: 300px; /* Ajusta la altura según lo que necesites */
-    }
-}
-
-    </style>
-    <script>
-
-        function abrirModal(src) {
-            console.log("Abriendo modal con imagen:", src); // Depuración
-            document.getElementById("modal").style.display = "flex";
-            document.getElementById("imgModal").src = src;
-        }
-
-        function cerrarModal() {
-            console.log("Cerrando modal"); // Depuración
-            document.getElementById("modal").style.display = "none";
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll(".tarjeta img").forEach(img => {
-                img.addEventListener("click", function () {
-                    abrirModal(this.src);
-                });
-            });
-
-            document.getElementById("modal").addEventListener("click", function (event) {
-                if (event.target === this) {
-                    cerrarModal();
-                }
-            });
-        });
-
-        window.onload = function () {
-    setTimeout(() => {
-        window.scrollTo(0, 0);
-    }, 100);
-};
-
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector(".vista").scrollIntoView({ behavior: "instant" });
-});
-
-    </script>
 </head>
 
 <body>
+
+    <!-- Modal -->
+<div id="modal" class="modal">
+    <span class="cerrar" onclick="cerrarModal()">&times;</span>
+    <img class="modal-contenido" id="imgModal" alt="Imagen ampliada">
+</div>
 
     <!-- Sección Principal -->
     <section class="vista">
@@ -392,29 +36,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
         <div class="vista-content">
             <h1>Florería Laurette</h1>
-            <p>Dilo con flores este 14 de febrero</p>
-            <a href="#catalogo" class="btn">Ver Catálogo</a>
+            <p>Dilo con flores este día de la madres</p>
+            <a href="#filtros" class="btn">Ver Catálogo</a>
         </div>
     </section>
 
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <span class="cerrar" onclick="cerrarModal()">&times;</span>
-        <img id="imgModal" class="modal-contenido" src="">
-    </div>
+    <section id="filtros">
+        <header id="header">
+            <h1 id="titulo">CATÁLOGO DÍA DE LAS MADRES</h1>
+        </header>
+        
+        <div class="filtros">
+            <button class="filtro active" onclick="filtrarCategoria('todos')">Todos</button>
+            <button class="filtro" onclick="filtrarCategoria('ramos')">Ramos</button>
+            <button class="filtro" onclick="filtrarCategoria('floreros')">Floreros</button>
+            <button class="filtro" onclick="filtrarCategoria('rosas')">Rosas</button>
+            <!-- Puedes agregar más categorías según lo necesites -->
+        </div>
 
+
+    <!-- Botones para ordenar por precio -->
+    <div class="ordenar-precio">
+        <p>Precio:</p>
+        <button onclick="ordenarPorPrecio('asc')"><i class="fa-solid fa-arrow-down"></i></button>
+        <button onclick="ordenarPorPrecio('desc')"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+</div>
+    </section>
 
     <!-- Catálogo -->
 
-    <section class="catalogo" id="catalogo">
-        <header id="header">
-            <h1 id="titulo">CATÁLOGO 14 DE FEBRERO</h1>
-        </header>
-        <div class="tarjeta">
+    <section class="catalogo" id="catalogo">   
+        
+        <div class="tarjeta" data-categoria="ramos" data-precio="70">
+            <div class="expandir-btn" onclick="abrirModal('./imagenes/31.jpg')">
+                <i class="fas fa-expand-alt"></i>
+            </div>
             <img src="./imagenes/31.jpg" alt="Flor 1">
+            <div class="contenido">
+                <h2>Rosa Azul</h2>
+                <p class="precio">$150</p>
+                <p>Una hermosa rosa azul que simboliza misterio y exclusividad.</p>
+            </div>
         </div>
 
-        <div class="tarjeta">
+        <div class="tarjeta" data-precio="50" data-categoria="ramos">
             <img src="./imagenes/29.jpg" alt="Flor 2">
         </div>
 

@@ -1,0 +1,407 @@
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+i{
+    color: cadetblue;
+}
+
+#num{
+    color: cadetblue;
+
+}
+
+body {
+    background: #fdfbe8;
+    color: #333;
+}
+
+/* Sección Principal */
+.vista {
+    position: relative;
+    height: 100vh;
+    background: url('./imagenes/fondo-imagen.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #333;
+    padding: 20px;
+}
+
+.vista::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.vista-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.vista h1 {
+    font-size: 3rem;
+    font-family: 'Brush Script MT', cursive;
+}
+
+.vista p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.btn {
+    margin-top: 50px;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #333;
+    border: 2px solid #333;
+    background: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #333;
+    color: white;
+}
+
+#header {
+    text-align: center;
+    padding: 20px 0;
+    grid-column: span 2;
+    /* Hace que el título ocupe todo el ancho del grid */
+}
+
+#titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Catálogo */
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    row-gap: 25px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 40px auto;
+    text-align: center;
+    padding: 0 40px;
+    /* Espacio lateral en la sección completa */
+}
+
+.contenido {
+    margin-bottom: 20%;
+}
+
+.expandir-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.expandir-btn i {
+    color: #333;
+    font-size: 1.2rem;
+}
+
+
+.tarjeta {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta img {
+    border-radius: 20px;
+    width: 80%;
+    height: 60%;
+    margin-top: 10%;
+    object-fit: cover;
+}
+
+.contenido {
+    padding: 15px;
+}
+
+.contenido h2 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.precio {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #436944;
+    margin-bottom: 8px;
+}
+
+/* Sección de Contacto y Ubicación */
+.section {
+    padding: 50px 20px;
+    text-align: center;
+    background: #fff;
+    margin-top: 20px;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.section p {
+    font-size: 1rem;
+    max-width: 600px;
+    margin: auto;
+}
+
+#redes_sociales{
+    position: absolute;
+    top: 20px;
+    right: 120px; 
+}
+
+#icono{
+    font-size: 1.5rem;
+    color: #333;
+    background: none;
+    padding: 4px 0;
+    display: inline-block;
+    width: fit-content;
+    /* Se ajusta al texto */
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn-contacto {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.btn-contacto .btn {
+    all: unset;
+    font-size: 1rem;
+    color: #333;
+    background: none;
+    padding: 4px 0;
+    display: inline-block;
+    width: fit-content;
+    /* Se ajusta al texto */
+    border-bottom: 2px solid #333;
+    text-align: center;
+    transition: 0.3s;
+}
+
+
+
+#ubicacion,
+#contacto {
+    background: none;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    /* Asegurar que está oculto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-contenido {
+    max-width: 80%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: auto;
+    border-radius: 20px;
+    object-fit: contain;  /* This will make the image fit within the modal without stretching */
+}
+
+.cerrar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+#titulo_ubi,
+#titulo_contacto {
+    border-bottom: 2px solid salmon;
+    margin-bottom: 50px;
+}
+
+#contenido_ubi {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+#info {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+#info {
+    display: block;
+    margin-top: 50px;
+    /* Opcional, para separar un poco el texto */
+    padding: 20px;
+}
+
+#titulo_contacto {
+    margin-bottom: 10px;
+    /* Opcional, para agregar espacio entre el título y la información */
+}
+
+#subtitulo {
+    font-size: 13px;
+
+}
+
+.lista-puntos {
+
+    margin-bottom: 10px;
+}
+
+.fa-instagram{
+    color: #fa86ad;
+}
+
+#insta_link{
+    all:unset;
+    font-size: 14px;
+    border-bottom: 2px #333 solid;
+}
+
+.fa-facebook{
+    color: blue;
+}
+
+#face_link{
+    all:unset;
+    font-size: 14px;
+    border-bottom: 2px #333 solid;
+}
+
+.filtros {
+margin: 20px;
+text-align: center;
+}
+
+.filtro {
+background-color: #436944;
+color: white;
+border-radius: 20px;
+border: none;
+padding: 10px 20px;
+margin: 5px;
+cursor: pointer;
+font-size: 16px;
+}
+
+.filtros button.active {
+    background-color: #4CAF50; /* El color cuando está activo */
+    color: white; /* Cambia el color del texto */
+    border: none;
+}
+
+.filtro:hover {
+background-color: #45a049;
+}
+
+.ordenar-precio button {
+gap: 5px;
+width: 40px;
+height: 50px;
+background-color: #436944;
+border: none;
+border-radius: 100px;
+}
+
+.ordenar-precio button.active{
+background-color: #45a049;
+transform: translateY(2px);
+}
+
+.ordenar-precio{
+margin-left: 40px;
+}
+
+.ordenar-precio p{
+font-size: 18px;
+color: #436944;
+margin-bottom: 10px;
+}
+
+.ordenar-precio button:hover {
+background-color: #45a049;
+
+}
+
+.fa-arrow-down{
+color: #fdfbe8;
+}
+
+.fa-arrow-up{
+color: #fdfbe8;
+}
+
+
+/* Hacer el iframe responsivo */
+iframe {
+max-width: 100%;
+height: 100%;
+width: 100%;
+border-radius: 20px;
+}
+
+/* Ajustar tamaño en pantallas pequeñas */
+@media (max-width: 380px) {
+iframe {
+width: 100%;
+height: 300px; /* Ajusta la altura según lo que necesites */
+}
+}
+
